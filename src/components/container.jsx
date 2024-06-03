@@ -1,5 +1,5 @@
 import Header from "./header/header";
-import DataUrl from './main/dataUrl/dataUrl';
+import DataUrl from './dataUrl/dataUrl';
 
 const Container = () => {
     return (
