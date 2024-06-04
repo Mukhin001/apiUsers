@@ -1,4 +1,5 @@
 import {useEffect, useState } from "react";
+import Users from './users/users';
 
 const DataUrl = () => {
 
@@ -25,35 +26,34 @@ useEffect(() => {
             <div>ERROR...</div>
         )
     }
-  if(isData) {
-    return (
-        <div>
-            API
-                {
-                    isData.map(element => 
-                        <ul key={element.id}> 
-                            <li>
-                            user  {element.id}
-                            </li>
-                            <li>
-                                {element.country}
-                            </li>
-                            <li>{element.email}</li>
-                         </ul>
+    if(isData) {
+      
+        return (
+            <div>
+                API
+                <div>
+                    <button onClick={upClick}>Up</button>
+                    <button onClick={toClick}>To</button>
+                </div>
 
-                    )
-                }
-           
-        </div>
+                <Users arr={isData} />
+            </div>
     )
-  } else {
-    return (
-        <div>
-            Loading...
-        </div>
-    )
+    } else {
+        return (
+            <div>
+                Loading...
+            </div>
+        )
+    }
+
+  function upClick() {
+    setData( isData.sort((a, b) => b.id - a.id));
+   //setData();
   }
-   
+  function toClick() {
+    setData(isData.sort((a, b) => a.id - b.id));
+  }
 }
 
 export default DataUrl; 
